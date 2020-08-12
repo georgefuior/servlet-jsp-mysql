@@ -110,6 +110,8 @@ public class EmployeeController extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	
+	//Method to delete an Employee from database
+	
 	public void deleteEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		if(employeeDAO.delete(Integer.parseInt(id))) {
