@@ -12,7 +12,7 @@ import java.util.List;
 import ro.georgefuior.entity.Employee;
 import ro.georgefuior.util.DBConnectionUtil;
 
-public class EmployeeDAOImpl implements EmployeeDAO {
+public class EmployeeDAOImpl implements DAO<Employee> {
 
 	Connection connection = null;
 	Statement statement = null;

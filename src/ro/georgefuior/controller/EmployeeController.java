@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ro.georgefuior.dao.EmployeeDAO;
+import ro.georgefuior.dao.DAO;
 import ro.georgefuior.dao.EmployeeDAOImpl;
 import ro.georgefuior.entity.Employee;
 import ro.georgefuior.util.DBConnectionUtil;
@@ -20,7 +20,7 @@ public class EmployeeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	//Create a ref variable for employee DAO
-	EmployeeDAO employeeDAO  = null;
+	DAO<Employee> employeeDAO  = null;
 	RequestDispatcher dispatcher = null;
 
 	//Create a constructor to initialize the employee DAO
@@ -103,6 +103,8 @@ public class EmployeeController extends HttpServlet {
 		String id = request.getParameter("id");
 		Employee employee = employeeDAO.get(Integer.parseInt(id));
 		request.setAttribute("employee", employee);
+		
+		//(new modification for testing GIT)
 
 		dispatcher = request.getRequestDispatcher("/Views/employee-add.jsp");
 
@@ -110,7 +112,7 @@ public class EmployeeController extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	
-	//Method to delete an Employee from database
+	//Method to delete an Employee from database 
 	
 	public void deleteEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");

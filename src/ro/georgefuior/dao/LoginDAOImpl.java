@@ -14,7 +14,7 @@ public class LoginDAOImpl implements LoginDAO {
 	public String authenticate(Login login) {
 		String sql = "SELECT * FROM tbl_login WHERE email = ? and password = ?";
 		
-		try {
+		try {	
 			Connection connection = DBConnectionUtil.openConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1,login.getEmail());
